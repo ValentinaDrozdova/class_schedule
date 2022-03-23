@@ -50,7 +50,7 @@ class BaseDao(Generic[ModelType, CreateSchemaType, UpdateSchemaType, DeleteSchem
         async with self._session_generator() as session:
             return await session.execute(select(self._model).where(obj_attr == attr))
 
-    async def get_all(self, offset: int = 0, limit: int = 20, filters=None) -> List[ModelType]:
+    async def get_all(self, offset: int = 0, limit: int = 20, filters: Optional[dict] = None) -> List[ModelType]:
         logger.info(f"{self._model.__name__} DAO: Get all db entries")
         async with self._session_generator() as session:
             expr = select(self._model).offset(offset).limit(limit).order_by(desc(self._model.created_at))
