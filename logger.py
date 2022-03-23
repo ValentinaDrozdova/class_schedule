@@ -22,10 +22,4 @@ def setup_logger():
         level=LOGURU_TRACE_NO,
         format=log_format
     )
-    # logger.add(
-    #     sink=file_path,
-    #     level=LOGURU_TRACE_NO,
-    #     format=log_format,
-    #     rotation=timedelta(days=1),
-    #     retention=timedelta(days=7)
-    # )
+
